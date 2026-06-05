@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Liv THRIVE E+ 最佳智能運動跑車 - 商品詳情</title>
+    <style>
+        /* ─── 基礎全域設定 ─── */
+        body {
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            color: #333333;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        
+        hr {
+            border: 0;
+            border-top: 1px solid #e0e0e0;
+            margin: 20px 0;
+        }
+
+        /* ─── 仿電商雙欄排版 (左圖右文) ─── */
+        .product-main-section {
+            display: flex;
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            gap: 40px;
+        }
+
+        /* 左邊圖片區塊 */
+        .product-left-col {
+            flex: 1;
+            max-width: 500px;
+        }
+
+        /* 右邊規格資訊區塊 */
+        .product-right-col {
+            flex: 1;
+        }
+
+        /* ─── Carousel 輪播設定 ─── */
+        .slider-container {
+            width: 500px;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #eeeeee;
+            border-radius: 4px;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            width: 400%;          
+            height: 100%;
+            /* ⭐ 關鍵修正：移除 CSS animation，改用純 transition 處理所有滑動效果 */
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
+
+        .slider-wrapper img {
+            width: 500px;         
+            height: 100%;
+            flex-shrink: 0;       
+            object-fit: contain;
+            background-color: #ffffff;
+        }
+
+        /* 下方迷你縮圖列 */
+        .thumb-list {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+
+        .thumb-item {
+            width: 70px;
+            height: 70px;
+            border: 1px solid #dddddd;
+            border-radius: 4px;
+            padding: 2px;
+            object-fit: contain;
+            background-color: #ffffff;
+            cursor: pointer; 
+            transition: border 0.2s;
+        }
+
+        /* 當前主顯圖片對應的縮圖邊框 */
+        .thumb-item.thumb-active {
+            border: 2px solid #ff4d4d;
+        }
+
+        /* ─── 右側電商元件樣式 ─── */
+        .tag-momo {
+            background-color: #cc0052;
+            color: white;
+            padding: 2px 6px;
+            font-size: 13px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .price-large {
+            color: #cc0052;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .spec-select-btn {
+            padding: 6px 15px;
+            border: 1px solid #cccccc;
+            background-color: white;
+            margin-right: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        
+        .spec-select-btn:hover, .spec-select-btn.color-active {
+            border-color: #cc0052;
+            color: #cc0052;
+            background-color: #fff0f5; 
+        }
+
+        /* 購買按鈕組 */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .btn-buy-now {
+            flex: 1;
+            padding: 15px;
+            background-color: #cc0052;
+            color: white;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .btn-add-cart {
+            flex: 1;
+            padding: 15px;
+            background-color: #2b78c5;
+            color: white;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        /* ─── 下方詳情滿版區塊 ─── */
+        .details-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        /* ─── 網頁底部頁尾與 QR Code ─── */
+        .footer-container {
+            background-color: #222222;
+            color: #ffffff;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .qrcode-box {
+            background-color: #ffffff;
+            padding: 10px;
+            width: 140px;
+            height: 140px;
+            margin: 15px auto;
+            border-radius: 5px;
+        }
+
+        .qrcode-box img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 第一部分：仿電商經典左右排版區塊 -->
+    <div class="product-main-section">
+        
+        <!-- 左側：自動輪播大圖 + 底部小縮圖 -->
+        <div class="product-left-col">
+            <div class="slider-container">
+                <div class="slider-wrapper" id="mainSlider">
+                    <img src="1_Liv_THRIVE_E+.png" alt="Liv THRIVE E+ 主圖 1">
+                    <img src="2_Liv_THRIVE_E+.png" alt="Liv THRIVE E+ 主圖 2">
+                    <img src="3_Liv_THRIVE_E+.png" alt="Liv THRIVE E+ 主圖 3">
+                    <img src="22_Liv_THRIVE_E+.png" alt="Liv THRIVE E+ 主圖 4">
+                </div>
+            </div>
+            
+            <!-- 底部小縮圖 -->
+            <div class="thumb-list">
+                <img src="1_Liv_THRIVE_E+.png" class="thumb-item thumb-active" alt="縮圖 1">
+                <img src="2_Liv_THRIVE_E+.png" class="thumb-item" alt="縮圖 2">
+                <img src="3_Liv_THRIVE_E+.png" class="thumb-item" alt="縮圖 3">
+                <img src="22_Liv_THRIVE_E+.png" class="thumb-item" alt="縮圖 4">
+            </div>
+        </div>
+        
+        <!-- 右側：商品標題、價格與規格按鈕 -->
+        <div class="product-right-col">
+            <span class="tag-momo">獨家特賣</span>
+            <h1 style="font-size: 22px; margin-top: 10px;">【Liv】THRIVE E+ 最佳智能運動跑車 (都會通勤/健康健身/電動輔助自行車)</h1>
+            <p style="color: #666; font-size: 14px;">⚡ 結合強勁動力與舒適操控，輕鬆達到人車一體完美境界 ⚡</p>
+            
+            <hr>
+            
+            <p style="text-decoration: line-through; color: #999; margin-bottom: 5px;">建議售價 88,000 元</p>
+            <p style="margin: 0;">優惠價：<span class="price-large">NT$ 79,800</span></p>
+            
+            <hr>
+            
+            <div style="margin-bottom: 15px;">
+                <span style="color:#666; margin-right: 15px;">車架尺寸 :</span>
+                <button class="spec-select-btn">XS</button>
+                <button class="spec-select-btn">S</button>
+                <button class="spec-select-btn">M</button>
+            </div>
+
+            <!-- 顏色按鈕 -->
+            <div>
+                <span style="color:#666; margin-right: 15px;">車身顏色 :</span>
+                <button class="spec-select-btn color-btn" data-index="0">雪山白</button>
+                <button class="spec-select-btn color-btn" data-index="1">柔薰紫</button>
+                <button class="spec-select-btn color-btn" data-index="2">獨角獸白</button>
+                <button class="spec-select-btn color-btn" data-index="3">藍光紫色</button>
+            </div>
+            
+            <div class="btn-group">
+                <button class="btn-buy-now">直接購買</button>
+                <button class="btn-add-cart">🛒 放入購物車</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 第二部分：下方商品詳細圖文 -->
+    <div class="details-container">
+        <h3 style="border-left: 4px solid #cc0052; padding-left: 10px;">【三大智能系統詳細拆解】</h3>
+        <div style="display: flex; gap: 20px; margin-top: 20px;">
+            <div style="flex:1; text-align: center; border: 1px solid #eee; padding: 10px; border-radius: 5px;">
+                <h4>🧠 控制系統 (RideControl Ergo)</h4>
+                <img src="6_Liv_THRIVE_E+.png" width="100%" style="max-height:150px; object-fit:contain;">   
+                <p style="font-size: 13px; text-align: left; color:#555;">控制系統如同大腦發號施令，整合速度、踏頻，讓你達到人車一體。</p>
+            </div>
+            <div style="flex:1; text-align: center; border: 1px solid #eee; padding: 10px; border-radius: 5px;">
+                <h4>🔋 電力系統 (Panasonic 管內式)</h4>
+                <img src="7_Liv_THRIVE_E+.png" width="100%" style="max-height:150px; object-fit:contain;">   
+                <p style="font-size: 13px; text-align: left; color:#555;">高效能鋰電池 500Wh 如同核心肌群，提供持久且充足的整車驅動力。</p>
+            </div>
+            <div style="flex:1; text-align: center; border: 1px solid #eee; padding: 10px; border-radius: 5px;">
+                <h4>⚙️ 電機系統 (SyncDrive Sport)</h4>
+                <img src="8_Liv_THRIVE_E+.png" width="100%" style="max-height:150px; object-fit:contain;">   
+                <p style="font-size: 13px; text-align: left; color:#555;">提供高達 70Nm 的強勁助力，如多了一雙健步如飛的腿因應各種路況。</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <h3 style="border-left: 4px solid #cc0052; padding-left: 10px; margin-top: 40px;">【完整規格表與文宣】</h3>
+        <div style="text-align: center; margin-top: 20px;">
+            <img src="10_Liv_THRIVE_E+.png" alt="詳細規格表" width="100%">
+            <img src="11_Liv_THRIVE_E+.jpg" alt="戶外騎乘體驗" width="100%" style="margin-top: 20px;">
+            <img src="LIV 網頁行銷介面.png" alt="行銷介面頂" width="100%" style="margin-top: 20px;">
+            <img src="LIV 網頁行銷介面(中).png" alt="行銷介面中" width="100%" style="margin-top: 20px;">
+        </div>
+    </div>
+
+    <!-- 第三部分：最下方的 QR Code 頁尾 -->
+    <div class="footer-container">
+        <h3>📱 行動瀏覽更方便</h3>
+        <p>歡迎掃描下方 QR Code，使用手機隨時查看最新車款與優惠資訊！</p>
+        <div class="qrcode-box">
+            <img src="qrcode.png" alt="專案專屬 QR Code">
+        </div>
+        <p style="font-size: 12px; color: #888888; margin-top: 20px;">
+            © 2026 Liv Cycling Shop. 本網頁僅供網頁製作學習作業使用.
+        </p>
+    </div>
+
+    <!-- ─── ⭐ 智慧型自動輪播與點選連動 JavaScript ─── -->
+    <script>
+        const mainSlider = document.getElementById('mainSlider');
+        const colorButtons = document.querySelectorAll('.color-btn');
+        const thumbItems = document.querySelectorAll('.thumb-item');
+        
+        let currentIndex = 0;   // 記錄當前在第幾張圖 (0~3)
+        const totalImages = 4;  // 總共有 4 張圖
+        let playTimer = null;   // 用來存放自動播放的計時器
+
+        // 核心：負責將畫面切換到指定 index 的函式
+        function changeImage(index) {
+            currentIndex = index; // 更新當前位置
+
+            // 1. 計算並移動大圖 (每張寬 500px)
+            const moveDistance = currentIndex * -500;
+            mainSlider.style.transform = `translateX(${moveDistance}px)`;
+
+            // 2. 更新右側顏色按鈕外觀
+            colorButtons.forEach(btn => btn.classList.remove('color-active'));
+            if (colorButtons[currentIndex]) {
+                colorButtons[currentIndex].classList.add('color-active');
+            }
+
+            // 3. 更新左下迷你縮圖外觀
+            thumbItems.forEach(thumb => thumb.classList.remove('thumb-active'));
+            thumbItems[currentIndex].classList.add('thumb-active');
+        }
+
+        // 啟動自動輪播功能
+        function startAutoPlay() {
+            // 每 3000 毫秒 (3秒) 自動切換到下一張
+            playTimer = setInterval(() => {
+                let nextIndex = currentIndex + 1;
+                if (nextIndex >= totalImages) {
+                    nextIndex = 0; // 播到最後一張就回到第一張
+                }
+                changeImage(nextIndex);
+            }, 3000); 
+        }
+
+        // 停止自動輪播功能
+        function stopAutoPlay() {
+            if (playTimer) {
+                clearInterval(playTimer);
+            }
+        }
+
+        // 為顏色按鈕綁定點擊事件
+        colorButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                stopAutoPlay(); // 1. 使用者點擊了，先清除目前的計時器 (避免點完瞬間大圖又自己跳走)
+                
+                const index = parseInt(this.getAttribute('data-index'));
+                changeImage(index); // 2. 切換到對應圖片
+                
+                startAutoPlay(); // 3. 重新啟動計時器，從這張圖開始重新倒數 3 秒繼續播
+            });
+        });
+
+        // 為迷你縮圖綁定點擊事件
+        thumbItems.forEach((thumb, index) => {
+            thumb.addEventListener('click', function() {
+                stopAutoPlay();
+                changeImage(index);
+                startAutoPlay();
+            });
+        });
+
+        // 網頁一打開，立刻自動執行輪播
+        startAutoPlay();
+    </script>
+
+</body>
+</html>
